@@ -7,6 +7,7 @@ phases:
   pre_build:
     commands:
       - echo creating zip file in efs folder...
+      - mkdir /efs
       - zip -r src.zip src
       - mkdir /test
       - mv src.zip /test
