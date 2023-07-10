@@ -25,3 +25,4 @@ phases:
       - cd /efs
       - unzip src.zip
       - ls -ltra
+      - rm -rf src.zip
