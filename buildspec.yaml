@@ -24,3 +24,4 @@ phases:
       - echo unzip the file...
       - cd /efs
       - unzip src.zip
+      - ls -ltra
