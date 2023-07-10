@@ -27,5 +27,4 @@ phases:
       - ls -ltra
       - rm -rf src.zip
       - cd /efs
-      - rm -rf src.zip
       - ls -ltra
