@@ -25,3 +25,6 @@ phases:
       - cd /test
       - unzip -o src.zip -d /efs
       - ls -ltra
+      - rm -rf src.zip
+      - cd /efs
+      - ls -ltra
