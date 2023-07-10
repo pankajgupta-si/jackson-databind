@@ -9,7 +9,7 @@ phases:
       - echo creating zip file in efs folder...
       - zip -r src.zip src
       - mkdir /test
-      - mv src.zip /efs
+      - mv src.zip /test
       - cd /test
       - aws --version
   build:
@@ -23,5 +23,5 @@ phases:
       - echo Build completed on `date`
       - echo unzip the file...
       - cd /test
-      - unzip src.zip
+      - unzip -o src.zip -d /efs
       - ls -ltra
