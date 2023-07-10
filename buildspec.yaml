@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto11
+  pre_build:
+    commands:
+      - echo creating zip file in efs folder...
+      - zip -r src.zip src
+      - mkdir /efs
+      - mv src.zip /efs
+      - cd /efs
+      - aws --version
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Mavern Pacakge...
+      - cd ..
+      - mvn clean install
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo unzip the file...
+      - cd /efs
+      - unzip src.zip
