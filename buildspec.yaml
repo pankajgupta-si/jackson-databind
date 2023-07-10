@@ -6,8 +6,7 @@ phases:
       java: corretto17
   pre_build:
     commands:
-      - echo creating zip file in efs folder...
-      - mkdir /efs
+      - echo creating zip file in efs folder....
       - zip -r src.zip src
       - mkdir /test
       - mv src.zip /test
