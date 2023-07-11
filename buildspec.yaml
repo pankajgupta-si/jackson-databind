@@ -6,16 +6,16 @@ phases:
       java: corretto17
   pre_build:
     commands:
-      - echo creating zip file in efs folder....
-      - zip -r src.zip src
+      - echo creating zip file in /test folder....
+      - zip -r docs.zip docs
       - mkdir /test
-      - mv src.zip /test
+      - mv docs.zip /test
       - cd /test
       - aws --version
   build:
     commands:
       - echo Build started on `date`
-      - echo Building the Mavern Pacakge...
+      - echo Building the Maven Pacakge...
       - cd ..
       - mvn clean install
   post_build:
@@ -23,8 +23,9 @@ phases:
       - echo Build completed on `date`
       - echo unzip the file...
       - cd /test
-      - unzip -o src.zip -d /efs
+      - unzip -o docs.zip -d /efs
       - ls -ltra
-      - rm -rf src.zip
+      - rm -rf docs.zip
       - cd /efs
       - ls -ltra
+      - rm -rf docs.zip
